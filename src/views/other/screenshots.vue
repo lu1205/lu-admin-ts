@@ -21,4 +21,3 @@ const open = async () => {
 
 const short = () => {}
 </script>
-

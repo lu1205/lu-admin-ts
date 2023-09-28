@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <div style=" display: flex; align-items: center;width: 200px; height: 200px">
+    <div style="display: flex; align-items: center; width: 200px; height: 200px">
       <waterLevelPond
-        style=" position: relative; overflow: hidden;width: 96px; height: 96px"
+        style="position: relative; overflow: hidden; width: 96px; height: 96px"
         :config="config"
         :waveNum="2"
         waveColor="#62BAF5"

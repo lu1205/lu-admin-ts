@@ -1,6 +1,6 @@
 <template>
   <div style="padding: 0 16px">
-    <h1 style=" margin: 20px 0; font-size: 26px; text-align: center;color: #3b82f6">
+    <h1 style="margin: 20px 0; font-size: 26px; text-align: center; color: #3b82f6">
       Web Speech API
     </h1>
 
@@ -48,7 +48,7 @@
           v-model="selectedLanguageIndex"
           placeholder="请选择语言"
           size="large"
-          style=" margin-bottom: 16px;width: 160px"
+          style="margin-bottom: 16px; width: 160px"
           filterable
           @change="changeLanguage"
         >
