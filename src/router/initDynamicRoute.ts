@@ -249,6 +249,102 @@ export const initRoute = async () => {
       icon: '',
       keepAlive: 1,
       roles: ['管理员']
+    },
+    {
+      id: 5,
+      parentId: null,
+      path: '/threejs/index',
+      name: 'threejsIndex',
+      redirect: '/threejs/index',
+      component: '',
+      title: 'threejsIndex',
+      icon: 'Setting',
+      keepAlive: 0,
+      roles: ['管理员']
+    },
+    {
+      id: 51,
+      parentId: 5,
+      path: '/threejs/index',
+      name: 'threejsIndex',
+      redirect: '',
+      component: 'threejs/index-10',
+      title: 'threejs',
+      icon: '',
+      keepAlive: 1,
+      roles: ['管理员']
+    },
+    {
+      id: 6,
+      parentId: null,
+      path: '/pinia/index',
+      name: 'pinia',
+      redirect: '/pinia/index',
+      component: '',
+      title: 'pinia',
+      icon: 'Setting',
+      keepAlive: 0,
+      roles: ['管理员']
+    },
+    {
+      id: 61,
+      parentId: 6,
+      path: '/pinia/index',
+      name: 'piniaIndex',
+      redirect: '',
+      component: 'pinia/index',
+      title: 'pinia',
+      icon: '',
+      keepAlive: 1,
+      roles: ['管理员']
+    },
+    {
+      id: 7,
+      parentId: null,
+      path: '/echarts/barCharts',
+      name: 'echarts',
+      redirect: '/echarts/barCharts',
+      component: '',
+      title: 'echarts',
+      icon: 'Setting',
+      keepAlive: 0,
+      roles: ['管理员']
+    },
+    {
+      id: 71,
+      parentId: 7,
+      path: '/echarts/barCharts',
+      name: 'barCharts',
+      redirect: '',
+      component: 'echarts/BarCharts',
+      title: 'barCharts',
+      icon: '',
+      keepAlive: 1,
+      roles: ['管理员']
+    },
+    {
+      id: 72,
+      parentId: 7,
+      path: '/echarts/lineCharts',
+      name: 'lineCharts',
+      redirect: '',
+      component: 'echarts/LineCharts',
+      title: 'lineCharts',
+      icon: '',
+      keepAlive: 1,
+      roles: ['管理员']
+    },
+    {
+      id: 73,
+      parentId: 7,
+      path: '/echarts/pieCharts',
+      name: 'pieCharts',
+      redirect: '',
+      component: 'echarts/PieCharts',
+      title: 'pieCharts',
+      icon: '',
+      keepAlive: 1,
+      roles: ['管理员']
     }
   ]
   const roles = useUserStore().getUser()?.roles || []

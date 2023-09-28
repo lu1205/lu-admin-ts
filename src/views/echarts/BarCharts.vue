@@ -4,7 +4,7 @@
 
 <script lang="ts" setup>
 import { BarChart } from 'echarts/charts'
-import useEcharts from '../../hooks/useEcharts'
+import useEcharts from '@/hooks/useEcharts'
 
 const { echarts } = useEcharts()
 echarts.use([BarChart])
