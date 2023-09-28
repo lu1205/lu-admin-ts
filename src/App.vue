@@ -7,9 +7,9 @@ const { loading } = storeToRefs(useSettingStore())
 </script>
 
 <template>
-    <div v-loading="loading">
-        <el-config-provider :locale="zhCn">
-            <RouterView />
-        </el-config-provider>
-    </div>
+  <div v-loading="loading">
+    <el-config-provider :locale="zhCn">
+      <RouterView />
+    </el-config-provider>
+  </div>
 </template>

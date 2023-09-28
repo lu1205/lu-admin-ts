@@ -1,9 +1,5 @@
 export default defineComponent({
   setup() {
-    return () => (
-      <div class="app-footer">
-        lu-admin
-      </div>
-    )
+    return () => <div class="app-footer">lu-admin</div>
   }
 })

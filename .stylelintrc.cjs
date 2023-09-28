@@ -17,6 +17,7 @@ module.exports = {
     }
   ],
   rules: {
+    'no-descending-specificity': null,
     // 解决 tailwindcss 报错
     'scss/at-rule-no-unknown': [
       true,

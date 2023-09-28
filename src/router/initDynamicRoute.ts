@@ -117,6 +117,138 @@ export const initRoute = async () => {
       keepAlive: 1,
       rank: 1,
       roles: ['管理员']
+    },
+    {
+      id: 2,
+      parentId: null,
+      path: '/other',
+      name: 'other',
+      redirect: '/other/recordScreen',
+      component: '',
+      title: '其他',
+      icon: 'Setting',
+      keepAlive: 0,
+      roles: ['管理员']
+    },
+    {
+      id: 21,
+      parentId: 2,
+      path: '/other/recordScreen',
+      name: 'recordScreen',
+      redirect: '',
+      component: 'other/recordScreen',
+      title: '录屏',
+      icon: '',
+      keepAlive: 1,
+      roles: ['管理员']
+    },
+    {
+      id: 22,
+      parentId: 2,
+      path: '/other/screenshots',
+      name: 'screenshots',
+      redirect: '',
+      component: 'other/screenshots',
+      title: '拍照',
+      icon: '',
+      keepAlive: 1,
+      roles: ['管理员']
+    },
+    {
+      id: 23,
+      parentId: 2,
+      path: '/other/video',
+      name: 'video',
+      redirect: '',
+      component: 'other/video',
+      title: '录屏TSX',
+      icon: '',
+      keepAlive: 1,
+      roles: ['管理员']
+    },
+    {
+      id: 24,
+      parentId: 2,
+      path: '/other/tts',
+      name: 'tts',
+      redirect: '',
+      component: 'other/tts',
+      title: 'WebSpeechAPI',
+      icon: '',
+      keepAlive: 1,
+      roles: ['管理员']
+    },
+    {
+      id: 25,
+      parentId: 2,
+      path: '/other/waterfallFlow',
+      name: 'waterfallFlow',
+      redirect: '',
+      component: 'other/waterfallFlow',
+      title: 'waterfallFlow',
+      icon: '',
+      keepAlive: 1,
+      roles: ['管理员']
+    },
+    {
+      id: 26,
+      parentId: 2,
+      path: '/other/lazyLoadImage',
+      name: 'lazyLoadImage',
+      redirect: '',
+      component: 'other/lazyLoadImage',
+      title: 'lazyLoadImage',
+      icon: '',
+      keepAlive: 1,
+      roles: ['管理员']
+    },
+    // {
+    //   id: 3,
+    //   parentId: null,
+    //   path: '/antdesign',
+    //   name: 'antdesign',
+    //   redirect: '/antdesign/table',
+    //   component: '',
+    //   title: 'antDesign',
+    //   icon: 'Setting',
+    //   keepAlive: 0,
+    //   roles: ['管理员']
+    // },
+    // {
+    //   id: 31,
+    //   parentId: 3,
+    //   path: '/antdesign/table',
+    //   name: 'table',
+    //   redirect: '',
+    //   component: 'antdesign/table',
+    //   title: 'antDesign表格',
+    //   icon: '',
+    //   keepAlive: 1,
+    //   roles: ['管理员']
+    // },
+    {
+      id: 4,
+      parentId: null,
+      path: '/vue3/keepAlive',
+      name: 'keepAlive',
+      redirect: '/vue3/keepAlive',
+      component: '',
+      title: 'keepAlive',
+      icon: 'Setting',
+      keepAlive: 0,
+      roles: ['管理员']
+    },
+    {
+      id: 41,
+      parentId: 4,
+      path: '/vue3/keepAlive',
+      name: 'keepAlive',
+      redirect: '',
+      component: 'vue3/keepAlive',
+      title: 'keepAlive',
+      icon: '',
+      keepAlive: 1,
+      roles: ['管理员']
     }
   ]
   const roles = useUserStore().getUser()?.roles || []
@@ -158,9 +290,9 @@ const modules = import.meta.glob(['@/views/**/*.vue', '@/views/**/*.tsx', '@/vie
 // 获取组件实例
 export function getComponent(path) {
   return (
-      modules[`/src/views/${path}.vue`] ||
-      modules[`/src/views/${path}.tsx`] ||
-      modules[`/src/views/${path}.jsx`]
+    modules[`/src/views/${path}.vue`] ||
+    modules[`/src/views/${path}.tsx`] ||
+    modules[`/src/views/${path}.jsx`]
   )
   // return () =>
   //     modules[`/src/views/${path}.vue`]() ||

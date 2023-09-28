@@ -7,15 +7,15 @@ import Footer from '@/layout/footer/index.tsx'
 </script>
 
 <template>
-    <div class="app-container">
-        <SideBar />
-        <div class="app-main">
-            <div class="app-top">
-                <Header />
-                <Tabs />
-            </div>
-            <Main />
-            <Footer />
-        </div>
+  <div class="app-container">
+    <SideBar />
+    <div class="app-main">
+      <div class="app-top">
+        <Header />
+        <Tabs />
+      </div>
+      <Main />
+      <Footer />
     </div>
+  </div>
 </template>

@@ -15,10 +15,14 @@ import router from './router'
 // import 'element-plus/theme-chalk/el-dialog.css'
 import 'element-plus/dist/index.css'
 import '@/styles/index.scss'
+import './assets/icon-font/iconfont.css'
 
 import App from './App.vue'
 const app = createApp(App)
-
+// // 通过自定义注册指令插件
+// import directivesPlugin from '@/utils/directivesPlugin'
+// import directives from '@/utils/directives/index'
+// app.use(directivesPlugin, directives)
 app.use(router)
 app.use(pinia)
 // app.use(ElementPlus, {

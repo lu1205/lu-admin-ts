@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig,type PluginOption } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -9,6 +9,8 @@ import IconsResolver from 'unplugin-icons/resolver'
 import viteCompression from 'vite-plugin-compression'
 import path from 'path'
 import { viteMockServe } from 'vite-plugin-mock'
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 export default defineConfig(({ command, mode }) => {
   return {
@@ -53,13 +55,19 @@ export default defineConfig(({ command, mode }) => {
           ElementPlusResolver(),
           IconsResolver({
             enabledCollections: ['ep']
-          })
+          }),
+          AntDesignVueResolver()
         ],
         dts: path.resolve('./components.d.ts')
       }),
       Icons({
         autoInstall: true
-      })
+      }),
+      visualizer({
+        emitFile: false,
+        filename: 'stats.html', //分析图生成的文件名
+        open: true //如果存在本地服务端口，将在打包后自动展示
+      }) as PluginOption
     ],
     resolve: {
       alias: {
