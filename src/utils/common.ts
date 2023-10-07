@@ -221,3 +221,14 @@ export function debounce3(fn: any, delay: number = 1000, immediate: boolean = tr
 
   return resultFunc
 }
+
+export function deepClone(obj: any) {
+  if (typeof obj !== 'object') return obj
+  const newObj = Array.isArray(obj) ? [] : {}
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      newObj[key] = typeof obj[key] === 'object' ? deepClone(obj[key]) : obj[key]
+    }
+  }
+  return newObj
+}

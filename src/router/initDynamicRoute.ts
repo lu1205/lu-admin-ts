@@ -56,12 +56,12 @@ export const initRoute = async () => {
     {
       id: 13,
       parentId: 1,
-      path: '',
-      name: '',
+      path: '/system/backInfo2',
+      name: 'systemBackInfo2',
       redirect: '/system/backInfo',
       component: '',
       title: '多级菜单1',
-      icon: 'Setting',
+      icon: 'Grid',
       keepAlive: 1,
       rank: 1,
       roles: ['管理员']
@@ -95,12 +95,12 @@ export const initRoute = async () => {
     {
       id: 1311,
       parentId: 13,
-      path: '',
-      name: '',
+      path: '/system/backInfo3',
+      name: 'systemBackInfo3',
       redirect: '/system/backInfo3',
       component: '',
       title: '多级菜单2',
-      icon: 'Setting',
+      icon: 'Grid',
       keepAlive: 1,
       rank: 1,
       roles: ['管理员']
@@ -126,7 +126,7 @@ export const initRoute = async () => {
       redirect: '/other/recordScreen',
       component: '',
       title: '其他',
-      icon: 'Setting',
+      icon: 'Grid',
       keepAlive: 0,
       roles: ['管理员']
     },
@@ -210,7 +210,7 @@ export const initRoute = async () => {
     //   redirect: '/antdesign/table',
     //   component: '',
     //   title: 'antDesign',
-    //   icon: 'Setting',
+    //   icon: 'Grid',
     //   keepAlive: 0,
     //   roles: ['管理员']
     // },
@@ -234,7 +234,7 @@ export const initRoute = async () => {
       redirect: '/vue3/keepAlive',
       component: '',
       title: 'keepAlive',
-      icon: 'Setting',
+      icon: 'Grid',
       keepAlive: 0,
       roles: ['管理员']
     },
@@ -258,7 +258,7 @@ export const initRoute = async () => {
       redirect: '/threejs/index',
       component: '',
       title: 'threejsIndex',
-      icon: 'Setting',
+      icon: 'Grid',
       keepAlive: 0,
       roles: ['管理员']
     },
@@ -282,7 +282,7 @@ export const initRoute = async () => {
       redirect: '/pinia/index',
       component: '',
       title: 'pinia',
-      icon: 'Setting',
+      icon: 'Grid',
       keepAlive: 0,
       roles: ['管理员']
     },
@@ -306,7 +306,7 @@ export const initRoute = async () => {
       redirect: '/echarts/barCharts',
       component: '',
       title: 'echarts',
-      icon: 'Setting',
+      icon: 'Grid',
       keepAlive: 0,
       roles: ['管理员']
     },
