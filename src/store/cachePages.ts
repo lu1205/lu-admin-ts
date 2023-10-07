@@ -4,7 +4,7 @@ import { ref } from 'vue'
 export const useCachePagesStore = defineStore(
   'cachePages',
   () => {
-    const cachePages = ref([])
+    const cachePages = ref<Array<string>>([])
 
     /*
      * 获取缓存页面
@@ -16,15 +16,14 @@ export const useCachePagesStore = defineStore(
     /*
      * 添加缓存页面
      * */
-    const addCachePage = (page) => {
-      if (cachePages.value.includes(page)) return
-      cachePages.value.push(page)
+    const addCachePage = (page: string) => {
+      !cachePages.value.includes(page) && cachePages.value.push(page)
     }
 
     /*
      * 移除缓存页面
      * */
-    const removeCachePage = (page) => {
+    const removeCachePage = (page: string) => {
       const index = cachePages.value.indexOf(page)
       if (index > -1) {
         cachePages.value.splice(index, 1)
@@ -34,7 +33,7 @@ export const useCachePagesStore = defineStore(
     /*
      * 设置缓存页面
      * */
-    const setCachePage = (pages) => {
+    const setCachePage = (pages: string[]) => {
       cachePages.value = pages
     }
 

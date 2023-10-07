@@ -8,6 +8,8 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     ATable: typeof import('ant-design-vue/es')['Table']
+    Breadcrumb: typeof import('./src/components/breadcrumb.vue')['default']
+    CollapseCom: typeof import('./src/components/collapseCom.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
     ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem']

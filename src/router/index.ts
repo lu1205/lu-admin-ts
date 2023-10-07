@@ -2,7 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Layout from '@/layout/index.vue'
 import { useRouteStore } from '@/store/route'
 import { useUserStore } from '@/store/user'
-import { initRoute } from '@/router/initDynamicRoute'
+import { findRouteByIndexPath, initRoute } from '@/router/initDynamicRoute'
+import { useTabsStore } from '@/store/tabs.ts'
+import { useCachePagesStore } from '@/store/cachePages.ts'
 
 const staticRouter = [
   {
@@ -54,6 +56,16 @@ router.beforeEach(async (to, from, next) => {
     await initRoute()
     // 跳转第一个菜单
     // if (to.path === '/') return next({ path: useRouteStore().getFirstRoute().path, replace: true })
+    // 添加tab和cachePage
+    const routeItem = findRouteByIndexPath(
+      to.query?.redirect || to.path,
+      useRouteStore().getRouteList() || []
+    )
+    useTabsStore().addTab(routeItem)
+    // 判断页面是否可缓存
+    if (routeItem.keepAlive === 1) {
+      useCachePagesStore().addCachePage(routeItem.name)
+    }
     return next({ path: to.query?.redirect || to.path, replace: true })
   }
   next()

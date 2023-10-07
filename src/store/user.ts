@@ -4,7 +4,7 @@ import { ref } from 'vue'
 export const useUserStore = defineStore(
   'userStore',
   () => {
-    const user = ref({
+    const user = ref<any>({
       userId: 1,
       avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
       username: 'admin',
@@ -17,7 +17,7 @@ export const useUserStore = defineStore(
     })
     const token = ref('')
 
-    const setToken = (val) => {
+    const setToken = (val: string) => {
       token.value = val
     }
     const getToken = () => {
@@ -26,7 +26,7 @@ export const useUserStore = defineStore(
     const clearToken = () => {
       token.value = ''
     }
-    const setUser = (val) => {
+    const setUser = (val: any) => {
       user.value = val
     }
     const getUser = () => {

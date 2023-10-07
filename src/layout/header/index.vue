@@ -1,17 +1,15 @@
 <script setup>
 import Breadcrumb from './component/breadcrumb.vue'
+import CollapseCom from '@/components/collapseCom.vue'
 import { Refresh, FullScreen, Setting, ArrowDown, SwitchButton } from '@element-plus/icons-vue'
-import { useUserStore } from '@/store/user'
 import { useRouter } from 'vue-router'
-import { useRouteStore } from '@/store/route'
 import { useSettingStore } from '@/store/setting'
 import { nextTick } from 'vue'
+import { clearAll } from '@/utils/clearStorage'
 
 const router = useRouter()
 const logout = () => {
-  useUserStore().clearToken()
-  useUserStore().clearUser()
-  useRouteStore().clearRouteList()
+  clearAll()
   router.replace('/login')
 }
 
@@ -30,7 +28,10 @@ const flush = () => {
 <template>
   <div class="app-header">
     <div class="breadcrumb-box">
-      <Breadcrumb />
+      <div style="display: flex; align-items: center">
+        <CollapseCom />
+        <Breadcrumb />
+      </div>
       <div style="display: flex; align-items: center; padding-right: 16px">
         <el-tooltip content="刷新" effect="light">
           <div class="circle-btn" @click="flush">

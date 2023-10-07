@@ -11,7 +11,7 @@ export const useSettingStore = defineStore(
     const loading = ref(false)
     const flush = ref(false)
 
-    function setCollapse(flag) {
+    function setCollapse(flag: boolean) {
       collapse.value = flag
     }
     function changeCollapse() {
@@ -22,7 +22,7 @@ export const useSettingStore = defineStore(
       return collapse.value
     }
 
-    const setLoading = (val) => {
+    const setLoading = (val: boolean) => {
       loading.value = val
     }
 
@@ -30,7 +30,7 @@ export const useSettingStore = defineStore(
       return loading.value
     }
 
-    const setFlush = (flag) => {
+    const setFlush = (flag: boolean) => {
       flush.value = flag
     }
     const getFlush = () => {

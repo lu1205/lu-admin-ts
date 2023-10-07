@@ -3,13 +3,14 @@ import { User, Lock } from '@element-plus/icons-vue'
 import { reactive, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useUserStore } from '@/store/user'
+import { clearAll } from '@/utils/clearStorage'
 
 let form = reactive({ username: 'admin', password: '123456' })
 const rules = []
 let formRef = ref(null)
 const router = useRouter()
 const route = useRoute()
-
+clearAll()
 const loginHandle = async (formEl) => {
   if (!formEl) return
   await formEl.validate(async (valid, fields) => {

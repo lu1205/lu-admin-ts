@@ -2,10 +2,10 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
 export const useRouteStore = defineStore('userRoute', () => {
-  const routeList = ref([])
+  const routeList = ref<any[]>([])
   const firstRoute = ref()
 
-  const setRouteList = (val) => {
+  const setRouteList = (val: any[]) => {
     routeList.value = val
   }
   const getRouteList = () => {
@@ -16,7 +16,7 @@ export const useRouteStore = defineStore('userRoute', () => {
     routeList.value = []
   }
 
-  const setFirstRoute = (val) => {
+  const setFirstRoute = (val: any) => {
     firstRoute.value = val
   }
 

@@ -349,9 +349,9 @@ export const initRoute = async () => {
   ]
   const roles = useUserStore().getUser()?.roles || []
 
-  const routeList = []
+  const routeList: any[] = []
   routes?.forEach((item) => {
-    const hasRoles = roles.filter((r) => item.roles?.includes(r))
+    const hasRoles = roles.filter((r: string) => item.roles?.includes(r))
     if (hasRoles.length) {
       routeList.push(handleRoute(item))
     }
@@ -367,7 +367,7 @@ export const initRoute = async () => {
 }
 
 // 处理路由信息
-export const handleRoute = (data) => {
+export const handleRoute = (data: any) => {
   return {
     ...data,
     component: data.component ? getComponent(data.component) : '',
@@ -384,7 +384,7 @@ export const handleRoute = (data) => {
 const modules = import.meta.glob(['@/views/**/*.vue', '@/views/**/*.tsx', '@/views/**/*.jsx'])
 
 // 获取组件实例
-export function getComponent(path) {
+export function getComponent(path: string) {
   return (
     modules[`/src/views/${path}.vue`] ||
     modules[`/src/views/${path}.tsx`] ||
@@ -397,10 +397,27 @@ export function getComponent(path) {
 }
 
 // 格式化路由（转成菜单数结构，渲染菜单）
-export const formatRoute = (data) => {
+export const formatRoute = (data: any[]) => {
   return data.filter((father) => {
     const branchArr = data.filter((child) => father.id === child.parentId) //返回每一项的子级数组
     branchArr.length > 0 ? (father.children = branchArr) : '' //如果存在子级，则给父级添加一个children属性，并赋值
     return !father.parentId //返回第一层
   })
+}
+
+export const findRouteByIndexPath = (indexPath: string, routeArr: any[]): any => {
+  let findItem = null
+  if (routeArr.length > 0 && indexPath) {
+    for (let i = 0; i < routeArr.length; i++) {
+      const item = routeArr[i]
+      if (item.path === indexPath && !item?.redirect && !item?.children) {
+        findItem = item
+        break
+      } else if (item.children) {
+        if (findItem) break
+        findItem = findRouteByIndexPath(indexPath, item.children)
+      }
+    }
+    return findItem
+  }
 }

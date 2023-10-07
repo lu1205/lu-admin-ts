@@ -6,7 +6,7 @@ import { useCachePagesStore } from '@/store/cachePages'
 export const useTabsStore = defineStore(
   'tabs',
   () => {
-    const tabArr = ref([])
+    const tabArr = ref<any[]>([])
     const router = useRouter()
     const route = useRoute()
 
@@ -14,14 +14,16 @@ export const useTabsStore = defineStore(
       return tabArr.value
     }
 
-    function addTab(item) {
-      tabArr.value.push(item)
+    function addTab(item: any) {
+      if (tabArr.value.findIndex((tab) => tab.path === item.path) === -1) {
+        tabArr.value.push(item)
+      }
     }
 
     /*
      * 删除tab
      * */
-    async function removeTab(path) {
+    async function removeTab(path: string) {
       // 不能删除首页
       const length = tabArr.value.length
       if (length === 1) return
@@ -64,7 +66,14 @@ export const useTabsStore = defineStore(
       useCachePagesStore().setCachePage(['home'])
     }
 
-    return { tabArr, getTabs, addTab, removeTab, removeOtherTab, resetTab }
+    /*
+     * 清空Tab
+     * */
+    function clearTab() {
+      tabArr.value = []
+    }
+
+    return { tabArr, getTabs, addTab, removeTab, removeOtherTab, resetTab, clearTab }
   },
   {
     persist: {

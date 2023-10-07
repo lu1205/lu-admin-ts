@@ -7,7 +7,6 @@
         text-color="#fff"
         :collapse="collapse"
         :unique-opened="false"
-        :collapse-transition="false"
         :default-active="route.path"
         router
         @select="selectPath"
@@ -31,7 +30,7 @@ const collapse = computed(() => {
   return useSettingStore().getCollapse()
 })
 
-import { formatRoute } from '@/router/initDynamicRoute'
+import { findRouteByIndexPath, formatRoute } from '@/router/initDynamicRoute'
 
 let menuList = formatRoute(useRouteStore().getRouteList())
 
@@ -54,22 +53,22 @@ const selectPath = (indexPath) => {
     }
   }
 }
-const findRouteByIndexPath = (indexPath, routeArr) => {
-  let findItem = null
-  if (routeArr.length > 0 && indexPath) {
-    for (let i = 0; i < routeArr.length; i++) {
-      let item = routeArr[i]
-      if (item.path === indexPath && !item?.redirect && !item?.children) {
-        findItem = item
-        break
-      } else if (item.children) {
-        if (findItem) break
-        findItem = findRouteByIndexPath(indexPath, item.children)
-      }
-    }
-    return findItem
-  }
-}
+// const findRouteByIndexPath = (indexPath, routeArr) => {
+//   let findItem = null
+//   if (routeArr.length > 0 && indexPath) {
+//     for (let i = 0; i < routeArr.length; i++) {
+//       let item = routeArr[i]
+//       if (item.path === indexPath && !item?.redirect && !item?.children) {
+//         findItem = item
+//         break
+//       } else if (item.children) {
+//         if (findItem) break
+//         findItem = findRouteByIndexPath(indexPath, item.children)
+//       }
+//     }
+//     return findItem
+//   }
+// }
 </script>
 <style scoped lang="scss">
 :deep(.el-scrollbar__view ul) {
