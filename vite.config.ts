@@ -1,4 +1,4 @@
-import { defineConfig,type PluginOption } from 'vite'
+import { defineConfig, type PluginOption } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -76,7 +76,7 @@ export default defineConfig(({ command, mode }) => {
     },
     server: {
       port: 3009,
-      host: '192.168.1.218',
+      // host: '192.168.1.218',
       open: false,
       https: false,
       hmr: true, //开启热更新

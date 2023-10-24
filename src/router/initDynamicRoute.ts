@@ -202,6 +202,18 @@ export const initRoute = async () => {
       keepAlive: 1,
       roles: ['管理员']
     },
+    {
+      id: 26,
+      parentId: 2,
+      path: '/other/iconify',
+      name: 'iconify',
+      redirect: '',
+      component: 'other/iconify',
+      title: 'iconify',
+      icon: '',
+      keepAlive: 1,
+      roles: ['管理员']
+    },
     // {
     //   id: 3,
     //   parentId: null,
@@ -342,6 +354,66 @@ export const initRoute = async () => {
       redirect: '',
       component: 'echarts/PieCharts',
       title: 'pieCharts',
+      icon: '',
+      keepAlive: 1,
+      roles: ['管理员']
+    },
+    {
+      id: 8,
+      parentId: null,
+      path: '/algorithm/bubblingSort',
+      name: 'algorithm',
+      redirect: '/algorithm/bubblingSort',
+      component: '',
+      title: '算法',
+      icon: 'Grid',
+      keepAlive: 0,
+      roles: ['管理员']
+    },
+    {
+      id: 81,
+      parentId: 8,
+      path: '/algorithm/bubblingSort',
+      name: 'bubblingSort',
+      redirect: '',
+      component: 'algorithm/bubblingSort',
+      title: '冒泡排序',
+      icon: '',
+      keepAlive: 1,
+      roles: ['管理员']
+    },
+    {
+      id: 82,
+      parentId: 8,
+      path: '/algorithm/selectSort',
+      name: 'selectSort',
+      redirect: '',
+      component: 'algorithm/selectSort',
+      title: '选择排序',
+      icon: '',
+      keepAlive: 1,
+      roles: ['管理员']
+    },
+    {
+      id: 83,
+      parentId: 8,
+      path: '/algorithm/simpleQuickSort',
+      name: 'simpleQuickSort',
+      redirect: '',
+      component: 'algorithm/simpleQuickSort',
+      title: '简单快速排序',
+      icon: '',
+      keepAlive: 1,
+      roles: ['管理员']
+    },
+    {
+      id: 84,
+      parentId: 8,
+      path: '/algorithm/quickSort',
+      name: 'quickSort',
+      redirect: '',
+      component: 'algorithm/quickSort',
+      title: '标准快速排序',
       icon: '',
       keepAlive: 1,
       roles: ['管理员']
